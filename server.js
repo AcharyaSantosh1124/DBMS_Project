@@ -37,7 +37,7 @@ app.post('/update', (req, res) => {
 });
 
 // Define a route to fetch the student data from the database
-app.get("/students", (req, res) => {
+app.get("/view", (req, res) => {
   const query = "SELECT * FROM input";
 
   pool.query(query, (err, result) => {

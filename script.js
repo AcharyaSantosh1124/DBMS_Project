@@ -18,7 +18,7 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
   };
 
   // Send the data to the server for updating the database
-  fetch("http://localhost:3001/update", {
+  fetch("http://localhost:3000/update", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -39,19 +39,17 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
     });
 });
 
-// Add event listener to the Show Student Data button
-document.getElementById("showDataButton").addEventListener("click", function() {
+// Add event listener to the "Show Student Data" button
+document.getElementById("showDataButton").addEventListener("click", function () {
   // Call a function to retrieve and display the student data
   fetchStudentData();
 });
 
 // Function to retrieve and display student data
 function fetchStudentData() {
-  // Send a GET request to the server to fetch the student data
-  fetch("http://localhost:3001/students") // Update the endpoint to "/students"
+  fetch("http://localhost:3000/view")
     .then(response => response.json())
     .then(data => {
-      // Process the response and display the student data
       displayStudentData(data);
     })
     .catch(error => {
@@ -59,7 +57,6 @@ function fetchStudentData() {
       alert("An error occurred while fetching student data. Please try again later.");
     });
 }
-
 
 // Function to display the student data on the webpage
 function displayStudentData(data) {
@@ -69,17 +66,52 @@ function displayStudentData(data) {
   // Clear any existing data
   dataContainer.innerHTML = "";
 
-  // Iterate through the data and create HTML elements to display each student's details
+  // Create a table element
+  var table = document.createElement("table");
+  table.classList.add("data-table");
+
+  // Create the table header row
+  var headerRow = document.createElement("tr");
+  headerRow.innerHTML = `
+    
+    <th>Name</th>
+    <th>Roll</th>
+    <th>Age</th>
+    <th>Address</th>
+    <th>Entrance_Score</th>
+  `;
+  table.appendChild(headerRow);
+
+  // Iterate through the data and create table rows for each student
   data.forEach(student => {
-    var studentDiv = document.createElement("div");
-    studentDiv.innerHTML = `
-      <h3>Name: ${student.name}</h3>
-      <p>Roll: ${student.roll}</p>
-      <p>Age: ${student.age}</p>
-      <p>Address: ${student.address}</p>
-      <p>Entrance Score: ${student.score}</p>
-      <hr>
+    var row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${student.name}</td>
+      <td>${student.roll}</td>
+      <td>${student.age}</td>
+      <td>${student.address}</td>
+      <td>${student.score}</td>
     `;
-    dataContainer.appendChild(studentDiv);
+    table.appendChild(row);
   });
+
+  table.style.borderCollapse = "collapse";
+  var border = table.getElementsByTagName("th");
+    border.style.border = "1px solid black";
+    border.style.padding = "8px";
+    border.style.textAlign = "left";
+
+  table.style.borderCollapse = "collapse";
+  var cells = table.getElementsByTagName("td");
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].style.border = "1px solid black";
+    cells[i].style.padding = "8px";
+    cells[i].style.textAlign = "left";
+  }
+  
+
+  // Append the table to the data container
+  dataContainer.appendChild(table);
 }
+
+
