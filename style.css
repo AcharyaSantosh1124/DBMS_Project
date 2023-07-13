@@ -20,6 +20,14 @@ h1{
     display: flex;
     justify-content: center;
 }
+.c6{
+    border: 1px solid black;
+    padding: auto;
+    background-color: rgb(22, 107, 114);
+    display: flex;
+    justify-content: center;
+}
+
 
 .c3{
     display: flex;
@@ -33,3 +41,12 @@ h1{
   background-color: rgb(189, 234, 174);
   font-size: x-large;
 }
+#studentDataContainer{
+    display: flex;
+    justify-content: center;
+    
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+  }
