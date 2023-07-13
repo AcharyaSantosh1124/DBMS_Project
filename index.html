@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DBMS_Project</title>
+  </head>
+  <body>
+    <div class="c1">
+      <h1>Enter student details into database</h1>
+      <br />
+      <div class="c2">
+        <form id="myForm">
+          <!-- Form elements go here -->
+          <label for="name">Name:</label><br />
+          <input type="text" id="name" name="name" required />
+          <br /><br />
+
+          <label for="roll">Roll:</label><br />
+          <input
+            type="text" id="roll" name="roll" placeholder="THA077BEI001" required />
+          <br /><br />
+
+          <label for="age">Age:</label><br />
+          <input type="number" id="age" name="age" min="0" required />
+          <br /><br />
+
+          <label for="address">Address:</label><br />
+          <input type="text" id="address" name="address" required />
+          <br /><br />
+
+          <label for="score">Entrance Score:</label><br />
+          <input type="number" id="score" name="score" max="100" required />
+          <br /><br />
+
+          <div id="ss">
+            <input type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+      <br>
+      <hr>
+      <hr>
+      <div class="c2">
+        <form>
+          <br>
+          <button id="showDataButton">Show Student Data</button>
+        </form>
+        <div id="studentDataContainer"></div>
+      </div>
+    </div>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </body>
+</html>

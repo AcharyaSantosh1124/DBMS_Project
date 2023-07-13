@@ -1,0 +1,35 @@
+body{
+    background-color: rgb(47, 188, 141);
+ 
+}
+
+.c1{
+    border: 2px solid black;
+    padding: auto;
+    background-color: rgb(225, 254, 254);
+
+}
+h1{
+    border: 1px solid black;
+    padding: auto;
+    background-color: rgb(216, 98, 98);
+    display: flex;
+    justify-content: center;
+}
+.c2{
+    display: flex;
+    justify-content: center;
+}
+
+.c3{
+    display: flex;
+    justify-content: center;
+}
+#ss{
+    display: flex;
+    justify-content: center;
+}
+#showDataButton{
+  background-color: rgb(189, 234, 174);
+  font-size: x-large;
+}
