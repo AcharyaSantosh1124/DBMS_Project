@@ -92,14 +92,11 @@ function displayStudentData(data) {
       <td>${student.address}</td>
       <td>${student.score}</td>
     `;
+    row.style.border = "1px solid black";
+    row.style.padding = "8px";
+    row.style.textAlign = "left";
     table.appendChild(row);
   });
-
-  table.style.borderCollapse = "collapse";
-  var border = table.getElementsByTagName("th");
-    border.style.border = "1px solid black";
-    border.style.padding = "8px";
-    border.style.textAlign = "left";
 
   table.style.borderCollapse = "collapse";
   var cells = table.getElementsByTagName("td");
